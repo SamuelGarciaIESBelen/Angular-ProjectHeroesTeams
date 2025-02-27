@@ -1,0 +1,49 @@
+{
+  "teams": [
+    {
+      "id": "1",
+      "name": "Justice League",
+      "leader": "",
+      "location": {
+        "lat": 40.7128,
+        "lon": -74.006
+      }
+    },
+    {
+      "id": "2",
+      "name": "Avengers",
+      "leader": "",
+      "location": {
+        "lat": 40.71,
+        "lon": -74
+      }
+    },
+    {
+      "id": "3",
+      "name": "Teen Titans",
+      "leader": "3",
+      "location": {
+        "lat": 37.77,
+        "lon": -122.41
+      }
+    },
+    {
+      "id": "4",
+      "name": "X-Men",
+      "leader": "8",
+      "location": {
+        "lat": 41.15,
+        "lon": -73.77
+      }
+    },
+    {
+      "id": "5",
+      "name": "Fantastic 4",
+      "leader": "9",
+      "location": {
+        "lat": 40.75,
+        "lon": -73.98
+      }
+    }
+  ]
+}

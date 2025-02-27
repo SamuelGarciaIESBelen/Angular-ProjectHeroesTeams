@@ -1,0 +1,46 @@
+<div>
+    <h1 class="text-light text-center mt-4">Editar un equipo</h1>
+    <form class="container w-25 bg-secondary rounded-4 border border-2 border-warning text-black fw-semibold p-5 my-5"
+        [formGroup]="editTeamForm" (submit)="editarEquipo()">
+
+        <label class="mb-2" for="name">Nombre</label>
+        <input class="form-control mb-4" type="text" name="name" id="name" placeholder="Justice League"
+            formControlName="name">
+        @if (editTeamForm.get('name')?.invalid && (editTeamForm.get('name')?.dirty || editTeamForm.get('name')?.touched)) {
+            <p class="text-light">El nombre es obligatorio</p>
+        }
+
+        <label class="mb-2" for="leader">Líder</label>
+        <select class="form-control mb-4" name="leader" id="leader" formControlName="leader">
+            <option value="">Sin líder</option>
+            @for (h of listaHeroes; track h.id) {
+                <option value="{{h.id}}">{{h.name}}</option>
+            }
+        </select>
+        @if (editTeamForm.get('leader')?.invalid && (editTeamForm.get('leader')?.dirty || editTeamForm.get('leader')?.touched)) {
+            <p class="text-light">El equipo debe tener un líder</p>
+        }
+
+        <label class="mb-2" for="location">Localización</label>
+        <div class="d-flex">
+            <div>
+                <label for="lat">Latitud</label>
+                <input class="form-control w-75 mb-4" type="number" step="0.01" name="lat" id="lat" formControlName="lat">
+                @if (editTeamForm.get('lat')?.invalid && (editTeamForm.get('lat')?.dirty || editTeamForm.get('lat')?.touched)) {
+                    <p class="text-light">La latitud es obligatoria</p>
+                }
+            </div>
+
+            <div>
+                <label for="lon">Longitud</label>
+                <input class="form-control w-75 mb-4" type="number" step="0.01" name="lon" id="lon" formControlName="lon">
+                @if (editTeamForm.get('lon')?.invalid && (editTeamForm.get('lon')?.dirty || editTeamForm.get('lon')?.touched)) {
+                    <p class="text-light">La longitud es obligatoria</p>
+                }
+            </div>
+        </div>
+
+        <div class="d-flex"><button class="btn btn-dark mt-4 rounded-4 border-2 border-warning m-auto" type="submit"
+                [disabled]="!editTeamForm.valid">Editar</button></div>
+    </form>
+</div>

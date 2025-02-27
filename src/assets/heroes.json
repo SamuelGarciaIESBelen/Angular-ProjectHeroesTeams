@@ -1,0 +1,94 @@
+{
+  "heroes": [
+    {
+      "id": "1",
+      "name": "Batman",
+      "secretId": "Bruce Wayne",
+      "gender": "Hombre",
+      "height": 188,
+      "powers": false,
+      "team": "1"
+    },
+    {
+      "id": "2",
+      "name": "Superman",
+      "secretId": "Clark Kent / Kal-El",
+      "gender": "Hombre",
+      "height": 191,
+      "powers": true,
+      "team": "1"
+    },
+    {
+      "id": "3",
+      "name": "Nightwing",
+      "secretId": "Dick Grayson",
+      "gender": "Hombre",
+      "height": 178,
+      "powers": false,
+      "team": "3"
+    },
+    {
+      "id": "4",
+      "name": "Raven",
+      "secretId": "Rachel Roth",
+      "gender": "Mujer",
+      "height": 165,
+      "powers": true,
+      "team": "3"
+    },
+    {
+      "id": "5",
+      "name": "Captain America",
+      "secretId": "Steve Rogers",
+      "gender": "Hombre",
+      "height": 188,
+      "powers": true,
+      "team": "2"
+    },
+    {
+      "id": "6",
+      "name": "Spiderman",
+      "secretId": "Peter Parker",
+      "gender": "Hombre",
+      "height": 173,
+      "powers": true,
+      "team": "2"
+    },
+    {
+      "id": "7",
+      "name": "Wolverine",
+      "secretId": "James Howlett",
+      "gender": "Hombre",
+      "height": 160,
+      "powers": true,
+      "team": "4"
+    },
+    {
+      "id": "8",
+      "name": "Cyclops",
+      "secretId": "Scott Summers",
+      "gender": "Hombre",
+      "height": 191,
+      "powers": true,
+      "team": "4"
+    },
+    {
+      "id": "9",
+      "name": "Mr. Fantastic",
+      "secretId": "Reed Richards",
+      "gender": "Hombre",
+      "height": 182,
+      "powers": true,
+      "team": "5"
+    },
+    {
+      "id": "10",
+      "name": "Human Torch",
+      "secretId": "Jhonny Storm",
+      "gender": "Hombre",
+      "height": 178,
+      "powers": true,
+      "team": "5"
+    }
+  ]
+}

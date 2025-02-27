@@ -1,0 +1,30 @@
+<div class="text-light">
+    <h1 class="text-center mt-4">Detalles del héroe</h1>
+    @if (hero) {
+    <div class="container text-center p-5 fs-4">
+        <p class="mt-4">Su identificador en el registro es {{hero.id}}</p>
+        <p class="mt-4">Se le conoce como {{hero.name}}</p>
+        <p class="mt-4">Su identidad secreta es {{hero.secretId}}</p>
+        @if (hero.gender === "Hombre") {
+        <p class="mt-4">Se identifica con el género masculino</p>
+        } @else {
+        <p class="mt-4">Se identifica con el género femenino</p>
+        }
+        <p class="mt-4">Mide {{hero.height}} cm</p>
+        @if (hero.powers) {
+        <p class="mt-4">Usando sus poderes, defiende nuestro planeta arriesgando su vida cada día</p>
+        } @else {
+        <p class="mt-4">Ha escogido poner su vida en riesgo para luchar por nosotros a pesar de no tener poderes</p>
+        }
+        @for (t of listaTeams; track t.id) {
+            @if (t.leader === hero.id) {<p class="mt-4">Es líder del equipo {{t.name}}</p>}
+            @else {
+                @if (t.id === hero.team) { <p class="mt-4">Es miembro del equipo {{t.name}}</p> }
+            }
+        }
+        <p class="mt-4">Si le ves llegar, no temas. Ahora que está aquí, dará su vida para protegerte y no descansará hasta que estés a salvo</p>
+    </div>
+    } @else {
+    <p>No se ha podido cargar</p>
+    }
+</div>

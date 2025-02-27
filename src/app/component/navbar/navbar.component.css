@@ -1,0 +1,9 @@
+.wheat {
+    background-color: wheat;
+}
+.azul {
+    color: #102C57;
+}
+.fondo {
+    background: linear-gradient(45deg, #1E201E 45%, #102C57);
+}

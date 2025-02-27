@@ -1,0 +1,61 @@
+<div>
+    <h1 class="text-light text-center mt-4">Editar un héroe</h1>
+    <form class="container w-25 bg-secondary rounded-4 border border-2 border-warning text-black fw-semibold p-5 my-5"
+        [formGroup]="editHeroForm" (submit)="editarHeroe()">
+
+        <label class="mb-2" for="name">Nombre de héroe</label>
+        <input class="form-control mb-4" type="text" name="name" id="name" formControlName="name">
+        @if (editHeroForm.get('name')?.invalid && (editHeroForm.get('name')?.dirty || editHeroForm.get('name')?.touched)) {
+            <p class="text-light">El nombre de héroe es obligatorio</p>
+        }
+
+        <label class="mb-2" for="secretId">Nombre real</label>
+        <input class="form-control mb-4" type="text" name="secretId" id="secretId" formControlName="secretId">
+        @if (editHeroForm.get('secretId')?.invalid && (editHeroForm.get('secretId')?.dirty || editHeroForm.get('secretId')?.touched)) {
+            <p class="text-light">El nombre real es obligatorio</p>
+        }
+
+        <label class="mb-2" for="gender">Género</label>
+        <div class="d-flex mb-5">
+            <div class="d-flex btn btn-dark me-3">
+                <input class="my-auto me-2" type="radio" name="gender" id="hombre" value="Hombre"
+                    formControlName="gender">
+                <label class="my-auto" for="hombre">Hombre</label>
+            </div>
+            <div class="d-flex btn btn-light">
+                <input class="my-auto me-2" type="radio" name="gender" id="mujer" value="Mujer"
+                    formControlName="gender">
+                <label class="my-auto" for="mujer">Mujer</label>
+            </div>
+        </div>
+
+        <label class="mb-2" for="height">Altura (en cm)</label>
+        <input class="form-control mb-4" type="number" step="1" name="height" id="height" formControlName="height">
+        @if (editHeroForm.get('height')?.invalid && (editHeroForm.get('height')?.dirty || editHeroForm.get('height')?.touched)) {
+        <div class="text-light">
+            @if (editHeroForm.get('height')?.errors?.['required']) {
+                <p>La altura es obligatoria</p>
+            }
+            @if (editHeroForm.get('height')?.errors?.['min']) {
+                <p>La altura debe ser positiva</p>
+            }
+        </div>
+        }
+
+        <div class="d-flex mb-4">
+            <label class="my-auto me-3" for="powers">Poderes</label>
+            <input class="my-auto" type="checkbox" name="powers" id="powers" formControlName="powers"><br>
+        </div>
+
+        <label class="mb-2" for="team">Equipo</label>
+        <select class="form-control mb-4" name="team" id="team" formControlName="team">
+            <option value="">Sin equipo</option>
+            @for (t of listaTeams; track t.id) {
+                <option value="{{t.id}}">{{t.name}}</option>
+            }
+        </select>
+
+        <div class="d-flex"><button class="btn btn-dark mt-4 rounded-4 border-2 border-warning m-auto" type="submit"
+                [disabled]="!editHeroForm.valid">Editar</button></div>
+    </form>
+</div>

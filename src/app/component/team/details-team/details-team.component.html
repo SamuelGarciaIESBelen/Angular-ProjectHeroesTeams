@@ -1,0 +1,21 @@
+<div class="text-light">
+    <h1 class="text-center mt-4">Detalles del equipo</h1>
+    @if (team) {
+    <div class="container text-center p-5 fs-4">
+        <p class="mt-4">Su identificador en el registro es {{team.id}}</p>
+        <p class="mt-4">El nombre del equipo es {{team.name}}</p>
+        <p class="mt-4">Las coordenadas de su base principal son {{team.location.lat}}, {{team.location.lon}}</p>
+        <p class="mt-4">Los miembros del equipo son los siguientes, con su líder marcado en <span class="text-primary">azul</span>:</p>
+        <div class="row justify-content-center p-5">
+            @for (h of listaHeroes; track h.id) {
+                @if (h.id === team.leader) { <p class="text-primary col-2">{{h.name}}</p> }
+                @else { <p class="col-2">{{h.name}}</p> }
+            }
+        </div>
+        <p>No debes preocuparte de ninguna amenaza si ellos se encuentran cerca, pues vencerán a cualquier mal y te protegerán con su vida</p>
+        
+    </div>
+    } @else {
+    <p>No se ha podido cargar</p>
+    }
+</div>

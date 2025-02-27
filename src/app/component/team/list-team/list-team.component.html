@@ -1,0 +1,31 @@
+<div>
+    <div class="text-light text-center p-4">
+        <h1>Lista de Equipos</h1>
+        <a class="btn btn-dark mt-4 fw-semibold rounded-4 border-2 border-warning" [routerLink]="['/create-team']">Crear</a>
+    </div>
+    <div class="container row m-auto justify-content-center">
+        @if (listaTeams.length === 0) { <p class="text-center text-light fs-4 fw-semibold">El servidor no está operativo</p> }
+        @for (t of listaTeams; track t.id) {
+            <div class="col-3 bg-light rounded-4 m-3 p-3 fw-semibold fs-5">
+                <h2 class="text-center mb-3">{{t.name}}</h2>
+                @if (!t.leader) { <p>No tiene líder</p> }
+                @else {
+                    @for (h of listaHeroes; track h.id) {
+                        @if (t.leader === h.id) {
+                            <p>Líder: {{h.name}}</p>
+                        }
+                    }
+                }
+                <p>Localización:</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp; - Latitud: {{t.location.lat}}</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp; - Longitud: {{t.location.lon}}</p>
+                
+                <div class="d-flex justify-content-between">
+                    <a class="btn btn-info rounded-3" [routerLink]="['/details-team', t.id]">Detalles</a>
+                    <a class="btn btn-primary rounded-3" [routerLink]="['/edit-team', t.id]">Editar</a>
+                    <a class="btn btn-danger rounded-3" (click)="eliminarEquipo(t.id)">Eliminar</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
